@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fate Lewtz: Destiny 2 Item Search</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <form>
+        <input type="text" id="search" placeholder="Gun Engram" />
+        <input type="submit" id="submit" v-on:click="search($event)" />
+      </form>
+
+      <ul id="results">
+        <li v-for="item in items">
+          {{ item.displayProperties.name }}
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
