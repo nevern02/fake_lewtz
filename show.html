@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Destiny 2 Item Details</title>
+
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+  <div id="app">
+    <h1>Item Details: {{ item.displayProperties.name }}</h1>
+    <img v-bind:src="imageUrl(item.displayProperties.icon)" />
+    <dl>
+      <dt>Description:</dt>
+      <dd>{{ item.displayProperties.description }}</dd>
+    </dl>
+
+    <a href="index.html">Back</a>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script type="text/javascript" src="details.js"></script>
+</body>
+
+</html>

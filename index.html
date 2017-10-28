@@ -17,7 +17,10 @@
 
       <ul id="results">
         <li v-for="item in items">
-          {{ item.displayProperties.name }}
+          <a v-bind:href="detailsUrl(item.hash)">
+            <img v-bind:src="imageUrl(item.displayProperties.icon)" />
+            <p>{{ item.displayProperties.name }}</p>
+          </a>
         </li>
       </ul>
     </div>
