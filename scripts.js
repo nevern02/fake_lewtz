@@ -12,7 +12,7 @@ var app = new Vue({
         },
 
         imageUrl: function(iconPath) {
-            return "https://www.bungie.net/" + iconPath;
+            return "https://www.bungie.net" + iconPath;
         },
 
         search: function(event) {

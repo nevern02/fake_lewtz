@@ -3,23 +3,29 @@
   <head>
     <title>Fate Lewtz: Destiny 2 Item Search</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" type="text/css" />
   </head>
 
   <body>
-    <h1>Search for Destiny 2 Items</h1>
+    <h1 class="center-text">Search for Destiny 2 Items</h1>
 
     <div id="app">
-      <form>
+      <form class="center-text">
         <input type="text" id="search" placeholder="Gun Engram" />
         <input type="submit" id="submit" v-on:click="search($event)" />
       </form>
 
       <ul id="results">
-        <li v-for="item in items">
+        <li class="item" v-for="item in items">
           <a v-bind:href="detailsUrl(item.hash)">
-            <img v-bind:src="imageUrl(item.displayProperties.icon)" />
-            <p>{{ item.displayProperties.name }}</p>
+            <div class="item-image">
+              <img v-bind:src="imageUrl(item.displayProperties.icon)" />
+            </div>
+
+            <div class="item-title">
+              <h3>{{ item.displayProperties.name }}</h3>
+            </div>
           </a>
         </li>
       </ul>
