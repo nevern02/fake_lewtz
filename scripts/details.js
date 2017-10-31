@@ -8,13 +8,17 @@ var app = new Vue({
     el: "#app",
     data: {
         itemId: itemId,
-        item: {displayProperties: {}}
+        item: {displayProperties: {}},
     },
     methods: {
         imageUrl: function(iconPath) {
             if (iconPath !== null && iconPath !== undefined) {
                 return "https://www.bungie.net/" + iconPath;
             }
+        },
+
+        goBack: function() {
+            window.history.back();
         }
     }
 });
@@ -23,6 +27,7 @@ var url = URL_ROOT + itemId + "/";
 var request = new XMLHttpRequest();
 
 console.log("Fetching details for item " + itemId);
+console.log(document.referrer);
 
 request.open("GET", url, true);
 
