@@ -13,7 +13,7 @@ var app = new Vue({
 
             var text = document.getElementById("search").value;
 
-            window.location.hash = "#search=" + text;
+            window.location.hash = "#search=" + window.encodeURI(text);
 
             app.items = [];
 
@@ -54,7 +54,7 @@ var app = new Vue({
         if (searchTerm === null || searchTerm === undefined) { return; }
 
         document.addEventListener("DOMContentLoaded", function(_event) { 
-            document.getElementById("search").value = searchTerm;
+            document.getElementById("search").value = window.decodeURI(searchTerm);
             app.search(searchTerm);
         });
     }
