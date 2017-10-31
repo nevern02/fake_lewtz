@@ -7,14 +7,6 @@ var app = new Vue({
         items: [],
     },
     methods: {
-        detailsUrl: function(itemId) {
-            return "show.html?itemId=" + itemId;
-        },
-
-        imageUrl: function(iconPath) {
-            return "https://www.bungie.net" + iconPath;
-        },
-
         search: function(event) {
             event.preventDefault();
 
@@ -24,8 +16,6 @@ var app = new Vue({
             var url        = URL_ROOT + searchText + "/";
             var request    = new XMLHttpRequest();
 
-            console.log("Searching for " + searchText);
-
             request.open("GET", url, true);
 
             request.setRequestHeader("X-API-KEY", API_KEY);
@@ -34,8 +24,6 @@ var app = new Vue({
                 if (request.status >= 200 && request.status < 400) {
                     var response = JSON.parse(request.responseText);
                     var results  = response.Response.results.results;
-
-                    console.log(results);
 
                     for (var i = 0; i < results.length; i++) {
                         app.items.push(results[i]);

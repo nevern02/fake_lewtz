@@ -17,21 +17,24 @@
       </form>
 
       <ul id="results">
-        <li class="item" v-for="item in items">
-          <a v-bind:href="detailsUrl(item.hash)">
-            <div class="item-image">
-              <img v-bind:src="imageUrl(item.displayProperties.icon)" />
-            </div>
-
-            <div class="item-title">
-              <h3>{{ item.displayProperties.name }}</h3>
-            </div>
-          </a>
-        </li>
+        <item-result inline-template v-for="item in items" v-bind:item="item" v-bind:key="item.hash">
+          <li class="item">
+            <a v-bind:href="detailsUrl">
+              <div class="item-image">
+                <img v-bind:src="imageUrl" />
+              </div>
+          
+              <div class="item-title">
+                <h3>{{ item.displayProperties.name }}</h3>
+              </div>
+            </a>
+          </li>
+        </item-result>
       </ul>
     </div>
 
     <script src="https://unpkg.com/vue"></script>
     <script src="scripts/scripts.js"></script>
+    <script src="scripts/item_result.js"></script>
   </body>
 </html>
