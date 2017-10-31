@@ -1,3 +1,5 @@
+var params = new URLSearchParams(window.location.search.substr(1));
+
 Vue.component("item-result", {
     props: ["item"],
     computed: {

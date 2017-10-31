@@ -4,17 +4,21 @@ var URL_ROOT = "https://www.bungie.net/Platform/Destiny2/Armory/Search/DestinyIn
 var app = new Vue({
     el: "#app",
     data: {
+        params: new URLSearchParams(window.location.search.substr(1)),
         items: [],
     },
     methods: {
-        search: function(event) {
+        submit: function(event) {
             event.preventDefault();
 
             app.items = [];
 
-            var searchText = document.getElementById("search").value;
-            var url        = URL_ROOT + searchText + "/";
-            var request    = new XMLHttpRequest();
+            app.search(document.getElementById("search").value);
+        },
+
+        search: function(searchText) {
+            var url     = URL_ROOT + searchText + "/";
+            var request = new XMLHttpRequest();
 
             request.open("GET", url, true);
 
@@ -38,5 +42,16 @@ var app = new Vue({
 
             request.send();
         }
+    },
+
+    created: function() {
+        var searchTerm = this.params.get("search");
+
+        if (searchTerm === null || searchTerm === undefined) { return; }
+
+        document.addEventListener("DOMContentLoaded", function(_event) { 
+            document.getElementById("search").value = searchTerm;
+            app.search(searchTerm);
+        });
     }
 });
