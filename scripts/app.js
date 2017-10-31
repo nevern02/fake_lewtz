@@ -4,16 +4,20 @@ var URL_ROOT = "https://www.bungie.net/Platform/Destiny2/Armory/Search/DestinyIn
 var app = new Vue({
     el: "#app",
     data: {
-        params: new URLSearchParams(window.location.search.substr(1)),
+        params: new URLSearchParams(window.location.hash.substr(1)),
         items: [],
     },
     methods: {
         submit: function(event) {
             event.preventDefault();
 
+            var text = document.getElementById("search").value;
+
+            window.location.hash = "#search=" + text;
+
             app.items = [];
 
-            app.search(document.getElementById("search").value);
+            app.search(text);
         },
 
         search: function(searchText) {
