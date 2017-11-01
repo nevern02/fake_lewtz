@@ -36,6 +36,7 @@ var app = new Vue({
       if (request.status >= 200 && request.status < 400) {
         var response = JSON.parse(request.responseText);
         app.item = response.Response;
+        console.log(app.item);
       }
     };
 
