@@ -115,5 +115,9 @@ ul {
   clear: both;
   margin-top: 3em;
 }
+
+.details-stat dd, .details-stat dt {
+  display: inline-block;
+}
 /* end details */
 

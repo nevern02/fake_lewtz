@@ -32,6 +32,15 @@
           <p class="details-header-desc"><em>{{ item.displayProperties.description }}</em></p>
         </section>
 
+        <section>
+          <dl>
+            <div class="details-stat" v-for="stat in stats">
+              <dt>{{ getStat(stat.hash).name }}</dt>
+              <dd>{{ getStat(stat.hash).value }}</dd>
+            </div>
+          </dl>
+        </section>
+
         <a href="#" v-on:click="goBack">Back</a>
       </main>
     </div>
